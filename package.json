@@ -1,0 +1,13 @@
+{
+  "name": "the-librarian",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "deploy": "bun src/deploy.js",
+    "dev": "bun --watch src/index.js",
+    "start": "bun src/index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.15.3"
+  }
+}
