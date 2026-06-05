@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from "discord.js";
 import { readFile } from "fs/promises";
 
 const guides = {
-  aria: await readFile(
+  test: await readFile(
     new URL("../content/characters/test.md", import.meta.url),
     "utf8",
   ),
