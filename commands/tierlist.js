@@ -1,9 +1,21 @@
-import { MessageFlags, SlashCommandBuilder } from "discord.js";
-import { readFile } from "fs/promises";
+import {
+  AttachmentBuilder,
+  EmbedBuilder,
+  SlashCommandBuilder,
+} from "discord.js";
 
-const content = await readFile(
-  new URL("../content/tierlist.md", import.meta.url),
-  "utf8",
+const tierlistDpsFile = new AttachmentBuilder(
+  "./attachments/tierlist-dps.jpg",
+  {
+    name: "tierlist-dps.jpg",
+  },
+);
+
+const tierlistSupportFile = new AttachmentBuilder(
+  "./attachments/tierlist-support.jpg",
+  {
+    name: "tierlist-support.jpg",
+  },
 );
 
 export default {
@@ -12,6 +24,19 @@ export default {
     .setDescription("A general tierlist for dps and supports"),
 
   async execute(interaction) {
-    await interaction.reply({ content, flags: MessageFlags.SuppressEmbeds });
+    const tierlistDPS = new EmbedBuilder()
+      .setTitle("DPS")
+      .setImage("attachment://tierlist-dps.jpg")
+      .setColor(0xcb2957);
+
+    const tierlistSupport = new EmbedBuilder()
+      .setTitle("Support")
+      .setImage("attachment://tierlist-support.jpg")
+      .setColor(0x7ae2cf);
+
+    await interaction.reply({
+      embeds: [tierlistDPS, tierlistSupport],
+      files: [tierlistDpsFile, tierlistSupportFile],
+    });
   },
 };

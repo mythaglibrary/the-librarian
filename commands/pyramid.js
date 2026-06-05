@@ -1,4 +1,8 @@
-import { MessageFlags, SlashCommandBuilder } from "discord.js";
+import {
+  AttachmentBuilder,
+  EmbedBuilder,
+  SlashCommandBuilder,
+} from "discord.js";
 import { readFile } from "fs/promises";
 
 const content = await readFile(
@@ -6,12 +10,24 @@ const content = await readFile(
   "utf8",
 );
 
+const pyramidFile = new AttachmentBuilder("./attachments/pyramid.png", {
+  name: "pyramid.png",
+});
+
 export default {
   data: new SlashCommandBuilder()
     .setName("pyramid")
     .setDescription("Explanation of the Origin of Time item"),
 
   async execute(interaction) {
-    await interaction.reply({ content, flags: MessageFlags.SuppressEmbeds });
+    const pyramid = new EmbedBuilder()
+      .setImage("attachment://pyramid.png")
+      .setColor(0x4f252e);
+
+    await interaction.reply({
+      content,
+      embeds: [pyramid],
+      files: [pyramidFile],
+    });
   },
 };

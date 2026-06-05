@@ -1,12 +1,14 @@
-import { createServer } from "node:http";
 import { Client, Collection, GatewayIntentBits } from "discord.js";
+import { createServer } from "node:http";
 import { commands } from "./commands.js";
 
 createServer((req, res) => {
   res.writeHead(200, { "Content-Type": "text/plain" });
   res.end("OK");
 }).listen(process.env.PORT || 3000, "0.0.0.0", () => {
-  console.info(`Health server listening on 0.0.0.0:${process.env.PORT || 3000}`);
+  console.info(
+    `Health server listening on 0.0.0.0:${process.env.PORT || 3000}`,
+  );
 });
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -16,7 +18,7 @@ for (const command of await commands()) {
   client.commands.set(command.data.name, command);
 }
 
-client.on("ready", () => {
+client.on("clientReady", () => {
   console.info(`Logged in as ${client.user.tag}`);
 });
 
