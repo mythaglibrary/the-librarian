@@ -6,22 +6,6 @@ const guides = {
     new URL("../content/characters/arachne.md", import.meta.url),
     "utf8",
   ),
-    borin: await readFile(
-    new URL("../content/characters/borin.md", import.meta.url),
-    "utf8",
-  ),
-  borin: await readFile(
-    new URL("../content/characters/borin.md", import.meta.url),
-    "utf8",
-  ),
-  celeste: await readFile(
-    new URL("../content/characters/celeste.md", import.meta.url),
-    "utf8",
-  ),
-  drakon: await readFile(
-    new URL("../content/characters/drakon.md", import.meta.url),
-    "utf8",
-  ),
 };
 
 export default {
@@ -34,11 +18,7 @@ export default {
         .setDescription("The character name to look up")
         .setRequired(true)
         .addChoices(
-          { name: "Test", value: "test" },
           { name: "Arachne", value: "arachne" },
-          { name: "Borin", value: "borin" },
-          { name: "Celeste", value: "celeste" },
-          { name: "Drakon", value: "drakon" },
         ),
     ),
 
