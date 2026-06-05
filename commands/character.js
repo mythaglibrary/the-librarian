@@ -2,8 +2,12 @@ import { SlashCommandBuilder } from "discord.js";
 import { readFile } from "fs/promises";
 
 const guides = {
-  test: await readFile(
-    new URL("../content/characters/test.md", import.meta.url),
+  arachne: await readFile(
+    new URL("../content/characters/Arachne.md", import.meta.url),
+    "utf8",
+  ),
+    borin: await readFile(
+    new URL("../content/characters/borin.md", import.meta.url),
     "utf8",
   ),
   borin: await readFile(
@@ -31,6 +35,7 @@ export default {
         .setRequired(true)
         .addChoices(
           { name: "Test", value: "test" },
+          { name: "Arachne", value: "arachne" },
           { name: "Borin", value: "borin" },
           { name: "Celeste", value: "celeste" },
           { name: "Drakon", value: "drakon" },
