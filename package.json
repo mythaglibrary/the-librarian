@@ -1,5 +1,5 @@
 {
-  "name": "the-librarian",
+  "name": "erica",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -8,6 +8,6 @@
     "start": "bun src/index.js"
   },
   "dependencies": {
-    "discord.js": "^14.15.3"
+    "discord.js": "^14.26.4"
   }
 }

@@ -1,4 +1,4 @@
-# The Librarian
+# Erica
 
 ## Setup
 
@@ -26,59 +26,45 @@
 
 ## Creating Commands
 
-Add new commands in `commands/`:
-```javascript
-import { SlashCommandBuilder } from 'discord.js';
+All commands load their content from Markdown files in `content/`. Discord renders the Markdown.
 
-export default {
-  data: new SlashCommandBuilder()
-    .setName('commandname')
-    .setDescription('Description here'),
+1. Create the content file in `content/`:
 
-  async execute(interaction) {
-    await interaction.reply('Response here');
-  },
-};
-```
+   ```markdown
+   Lorem ipsum dolor sit amet:
 
-After creating a command, run `bun run deploy` to register it with Discord.
+   - [Lorem](https://example.com/lorem)
+   - [Ipsum](https://example.com/ipsum)
+   ```
 
-## Content Files
+2. Wire it up in `commands/`:
 
-For longer replies, keep the text in `content/*.md` and load it from a command. Discord renders the Markdown.
+   ```javascript
+   import { MessageFlags, SlashCommandBuilder } from 'discord.js';
+   import { readFile } from 'fs/promises';
 
-Create the file:
+   const content = await readFile(
+     new URL(import.meta.resolve("content/yourFile.md")),
+     "utf8",
+   );
 
-```markdown
-Useful general guides and resources:
+   export default {
+     data: new SlashCommandBuilder()
+       .setName('yourCommand')
+       .setDescription('Lorem ipsum dolor sit amet'),
 
-- [New Player Handbook](https://example.com/handbook)
-- [Build Compendium](https://example.com/builds)
-```
+     async execute(interaction) {
+       await interaction.reply({ content, flags: MessageFlags.SuppressEmbeds });
+     },
+   };
+   ```
 
-Wire it up in a command (see `commands/guides.js`):
+   The file is read once when the bot starts.
 
-```javascript
-import { SlashCommandBuilder } from 'discord.js';
-import { readFile } from 'fs/promises';
+3. Run `bun run deploy` to register the new command with Discord.
 
-const content = await readFile(new URL('../content/yourFile.md', import.meta.url), 'utf8');
+**Limit:** Discord caps messages at 2000 characters. If a file grows past that, split it across multiple messages with `interaction.followUp()`.
 
-export default {
-  data: new SlashCommandBuilder()
-    .setName('yourCommand')
-    .setDescription('...'),
+## How do I do things?
 
-  async execute(interaction) {
-    await interaction.reply(content);
-  },
-};
-```
-
-The file is read once when the bot starts.
-
-**Limit:** Discord caps messages at 2000 characters. If a file grows past that, you'll need to split it across multiple messages with `interaction.followUp()`.
-
-## Slash Command Usage
-
-More info about slash commands can be found in the [discord.js guide](https://discordjs.guide/legacy/slash-commands/advanced-creation).
+More info on what can be done and how: [discord.js guide](https://discordjs.guide/)
