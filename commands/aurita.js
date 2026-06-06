@@ -11,7 +11,7 @@ const content = await readFile(
   "utf8",
 );
 
-const pyramidFile = new AttachmentBuilder("attachments/aurita.png", {
+const AuritaFile = new AttachmentBuilder("attachments/aurita.png", {
   name: "aurita.png",
 });
 
@@ -21,7 +21,7 @@ export default {
     .setDescription("Peak"),
 
   async execute(interaction) {
-    const pyramid = new EmbedBuilder()
+    const Aurita = new EmbedBuilder()
       .setDescription(content)
       .setImage("attachment://aurita.png")
       .setColor(palette.sky);
