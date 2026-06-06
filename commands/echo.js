@@ -11,8 +11,8 @@ const content = await readFile(
   "utf8",
 );
 
-const echoFile = new AttachmentBuilder("attachments/echo.png", {
-  name: "echo.png",
+const echoFile = new AttachmentBuilder("attachments/echo.jpg", {
+  name: "echo.jpg",
 });
 
 export default {
@@ -23,7 +23,7 @@ export default {
   async execute(interaction) {
     const echo = new EmbedBuilder()
       .setDescription(content)
-      .setImage("attachment://echo.png")
+      .setImage("attachment://echo.jpg")
       .setColor(palette.sky);
 
     await interaction.reply({
