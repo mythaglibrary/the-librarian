@@ -4,10 +4,10 @@ import {
   SlashCommandBuilder,
 } from "discord.js";
 import { readFile } from "fs/promises";
-import { palette } from "../src/palette.js";
+import { palette } from "src/palette.js";
 
 const content = await readFile(
-  new URL("../content/pyramid.md", import.meta.url),
+  new URL(import.meta.resolve("content/pyramid.md")),
   "utf8",
 );
 

@@ -2,7 +2,7 @@ import { MessageFlags, SlashCommandBuilder } from "discord.js";
 import { readFile } from "fs/promises";
 
 const content = await readFile(
-  new URL("../content/guides.md", import.meta.url),
+  new URL(import.meta.resolve("content/guides.md")),
   "utf8",
 );
 

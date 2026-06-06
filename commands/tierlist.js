@@ -3,7 +3,7 @@ import {
   EmbedBuilder,
   SlashCommandBuilder,
 } from "discord.js";
-import { palette } from "../src/palette";
+import { palette } from "src/palette";
 
 const tierlistDpsFile = new AttachmentBuilder(
   "./attachments/tierlist-dps.jpg",

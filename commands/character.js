@@ -3,67 +3,67 @@ import { readFile } from "fs/promises";
 
 const guides = {
   arachne: await readFile(
-    new URL("../content/characters/arachne.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/arachne.md")),
     "utf8",
   ),
     castor: await readFile(
-    new URL("../content/characters/castor.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/castor.md")),
     "utf8",
   ),
     clementine: await readFile(
-    new URL("../content/characters/clementine.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/clementine.md")),
     "utf8",
   ),
     corpo: await readFile(
-    new URL("../content/characters/corpo.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/corpo.md")),
     "utf8",
   ),
     daffodil: await readFile(
-    new URL("../content/characters/daffodil.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/daffodil.md")),
     "utf8",
   ),
     gdoll: await readFile(
-    new URL("../content/characters/gdoll.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/gdoll.md")),
     "utf8",
   ),
     ghelot: await readFile(
-    new URL("../content/characters/ghelot.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/ghelot.md")),
     "utf8",
   ),
     gmurphy: await readFile(
-    new URL("../content/characters/gmurphy.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/gmurphy.md")),
     "utf8",
   ),
     jenkin: await readFile(
-    new URL("../content/characters/jenkin.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/jenkin.md")),
     "utf8",
   ),
     kath: await readFile(
-    new URL("../content/characters/kath.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/kath.md")),
     "utf8",
   ),
     miryam: await readFile(
-    new URL("../content/characters/miryam.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/miryam.md")),
     "utf8",
   ),
     mouchette: await readFile(
-    new URL("../content/characters/mouchette.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/mouchette.md")),
     "utf8",
   ),
     pollux: await readFile(
-    new URL("../content/characters/pollux.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/pollux.md")),
     "utf8",
   ),
     saya: await readFile(
-    new URL("../content/characters/saya.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/saya.md")),
     "utf8",
   ),
     vortice: await readFile(
-    new URL("../content/characters/vortice.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/vortice.md")),
     "utf8",
   ),
     xu: await readFile(
-    new URL("../content/characters/xu.md", import.meta.url),
+    new URL(import.meta.resolve("content/characters/xu.md")),
     "utf8",
   ),
 };
